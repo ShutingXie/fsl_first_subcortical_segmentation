@@ -41,5 +41,5 @@ Then, run the following command to check the registration QC:
 cd <--input-dir>
 find . -name '*_to_std_sub.nii.gz' | sort # check if the registration is successful
 find . -name '*_to_std_sub.nii.gz' | sort > to_std_sub_list.txt # save the list of registered images
-slicesdir $(cat to_std_sub_list.txt) # visualize the registered images
+slicesdir -p ${FSLDIR}/data/standard/MNI152_T1_1mm.nii.gz $(cat to_std_sub_list.txt) # visualize the registered images
 ```
