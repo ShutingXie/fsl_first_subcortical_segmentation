@@ -26,4 +26,20 @@ For montreal dataset, the running time is roughly 1h 10min totally for 10 subjec
 
 ## Registration QC
 
-If `first_flirt` registration is wrong, segmentation will be unreliable even if the command finishes. Registration and mesh outputs live under your `--output-dir` tree; you can `find DIR -name '*_to_std_sub.nii.gz'` and use `slicesdir` with the MNI template as described in the FIRST documentation.
+If `first_flirt` registration is wrong, segmentation will be unreliable even if the command finishes. Registration and mesh outputs live under your `--output-dir` tree.
+
+First, run the following command to check the registration errors:
+
+```bash
+cd <--output-dir>
+cat *.logs/*.e*
+```
+
+Then, run the following command to check the registration QC:
+
+```bash
+cd <--input-dir>
+find . -name '*_to_std_sub.nii.gz' | sort # check if the registration is successful
+find . -name '*_to_std_sub.nii.gz' | sort > to_std_sub_list.txt # save the list of registered images
+slicesdir $(cat to_std_sub_list.txt) # visualize the registered images
+```

@@ -5,6 +5,8 @@
 # Requires: FSL with run_first_all on PATH (or FSLDIR + fsl.sh).
 # Docs: https://fsl.fmrib.ox.ac.uk/fsl/docs/structural/first.html
 
+#  ./scripts/batch_run_first_all.sh montreal/images --output-dir first_out --brain-extracted false
+
 set -euo pipefail
 
 usage() {
