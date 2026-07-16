@@ -6,6 +6,12 @@ Batch [FSL FIRST](https://fsl.fmrib.ox.ac.uk/fsl/docs/structural/first.html) sub
 
 - FSL installed
 
+## Input directory (copy before running)
+
+`run_first_all` writes **registration intermediates next to the input image** when that directory is writable—for example `*_to_std_sub.nii.gz` and `*_to_std_sub.mat`. The **`--output-dir`** flag only sets the prefix for segmentation outputs (`*_all_fast_firstseg.nii.gz`, `*_first.vtk`, `.logs/`, etc.); it does not redirect those registration files.
+
+**Copy your files into a dedicated working folder** and point `INPUT_DIR` at that copy so original data stay clean.
+
 ## Usage
 
 ```bash
